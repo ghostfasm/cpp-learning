@@ -15,7 +15,7 @@ set(SOURCE_FILES main.cpp)
 add_library(
     analyzer
     analyzer.h
-    analyzer.cpp
+    analyzer.cpp 
 )
 
 add_library(

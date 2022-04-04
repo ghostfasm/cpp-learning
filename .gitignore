@@ -34,3 +34,7 @@
 # etc
 .json
 /build
+Tasks/dependencyParser/CMakeFiles
+Makefile
+*.cmake
+CMakeCache.txt
