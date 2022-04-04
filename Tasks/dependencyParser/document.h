@@ -62,7 +62,7 @@ class DocumentsGroup
         return documents.size();
     }
     
-    // рекурсивный поиск документов в определенной директории с определенным расширением
+    // СЂРµРєСѓСЂСЃРёРІРЅС‹Р№ РїРѕРёСЃРє РґРѕРєСѓРјРµРЅС‚РѕРІ РІ РѕРїСЂРµРґРµР»РµРЅРЅРѕР№ РґРёСЂРµРєС‚РѕСЂРёРё СЃ РѕРїСЂРµРґРµР»РµРЅРЅС‹Рј СЂР°СЃС€РёСЂРµРЅРёРµРј
     static DocumentsGroup getInDirectory(std::string dir, std::string extension)
     {
         DocumentsGroup result;

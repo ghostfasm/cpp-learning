@@ -9,22 +9,22 @@
 
 class Analyzer
 {
-	// Инициализация всех полей класса
+	// РРЅРёС†РёР°Р»РёР·Р°С†РёСЏ РІСЃРµС… РїРѕР»РµР№ РєР»Р°СЃСЃР°
 	bool init(int & argc, char** argv);
 
-	// Пути к заголовочным файлам .h <...>
+	// РџСѓС‚Рё Рє Р·Р°РіРѕР»РѕРІРѕС‡РЅС‹Рј С„Р°Р№Р»Р°Рј .h <...>
 	std::vector<std::string> includePathesDirectories;
 
-	// Путь к папке с исходными файлами .cpp
+	// РџСѓС‚СЊ Рє РїР°РїРєРµ СЃ РёСЃС…РѕРґРЅС‹РјРё С„Р°Р№Р»Р°РјРё .cpp
 	std::string sourcePathDirectory;
 
-	// Содержит все доступные исходные файлы .cpp
+	// РЎРѕРґРµСЂР¶РёС‚ РІСЃРµ РґРѕСЃС‚СѓРїРЅС‹Рµ РёСЃС…РѕРґРЅС‹Рµ С„Р°Р№Р»С‹ .cpp
 	DocumentsGroup sourceFilesInDirectory;
 
-	// Cодержит все доступные заголовочные файлы .h
+	// CРѕРґРµСЂР¶РёС‚ РІСЃРµ РґРѕСЃС‚СѓРїРЅС‹Рµ Р·Р°РіРѕР»РѕРІРѕС‡РЅС‹Рµ С„Р°Р№Р»С‹ .h
 	std::vector<DocumentsGroup> includeFilesInDirectories;
 
-	// Вектор деревьев
+	// Р’РµРєС‚РѕСЂ РґРµСЂРµРІСЊРµРІ
 	std::vector<DependencyTree> dependencyTrees;
     public:
     Analyzer(){}

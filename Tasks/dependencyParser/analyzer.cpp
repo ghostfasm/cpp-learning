@@ -9,19 +9,19 @@ void Analyzer::start(int& argc, char* argv[])
 
         namespace fs = std::filesystem;
 
-        // Поиск всех файлов с расширением .cpp
+        // РџРѕРёСЃРє РІСЃРµС… С„Р°Р№Р»РѕРІ СЃ СЂР°СЃС€РёСЂРµРЅРёРµРј .cpp
         sourceFilesInDirectory = DocumentsGroup::getInDirectory(sourcePathDirectory, ".cpp");
 
-        // Поиск всех заголовочных файлов .h <...> находящиеся в указанных директориях
+        // РџРѕРёСЃРє РІСЃРµС… Р·Р°РіРѕР»РѕРІРѕС‡РЅС‹С… С„Р°Р№Р»РѕРІ .h <...> РЅР°С…РѕРґСЏС‰РёРµСЃСЏ РІ СѓРєР°Р·Р°РЅРЅС‹С… РґРёСЂРµРєС‚РѕСЂРёСЏС…
         for (int i = 0; i < includePathesDirectories.size(); i++)
         {
-            // Удаляем лишние пробелы из строки
+            // РЈРґР°Р»СЏРµРј Р»РёС€РЅРёРµ РїСЂРѕР±РµР»С‹ РёР· СЃС‚СЂРѕРєРё
             includePathesDirectories[i].erase(remove_if(includePathesDirectories[i].begin(), includePathesDirectories[i].end(), isspace), includePathesDirectories[i].end());
 
             includeFilesInDirectories.push_back(DocumentsGroup::getInDirectory(includePathesDirectories[i], ".h"));
         }
 
-        // Создание дерева зависимостей
+        // РЎРѕР·РґР°РЅРёРµ РґРµСЂРµРІР° Р·Р°РІРёСЃРёРјРѕСЃС‚РµР№
         for (auto e : *sourceFilesInDirectory.get())
         {
             DependencyTree tempTree(&e, &includeFilesInDirectories);
@@ -44,24 +44,24 @@ bool Analyzer::init(int & argc, char * argv[])
     sourcePathDirectory = std::string(argv[1]);
     namespace opt = boost::program_options;
 
-    // Создаем опции, описывающие переменную, и даем ей текстовое описание
+    // РЎРѕР·РґР°РµРј РѕРїС†РёРё, РѕРїРёСЃС‹РІР°СЋС‰РёРµ РїРµСЂРµРјРµРЅРЅСѓСЋ, Рё РґР°РµРј РµР№ С‚РµРєСЃС‚РѕРІРѕРµ РѕРїРёСЃР°РЅРёРµ
     opt::options_description desc("All options");
 
-    // При добавлении опции, первый параметр - имя. Второй параметр - тип данных опции, заключенный в класс value<>. Третий параметр содержит описание этой опции
+    // РџСЂРё РґРѕР±Р°РІР»РµРЅРёРё РѕРїС†РёРё, РїРµСЂРІС‹Р№ РїР°СЂР°РјРµС‚СЂ - РёРјСЏ. Р’С‚РѕСЂРѕР№ РїР°СЂР°РјРµС‚СЂ - С‚РёРї РґР°РЅРЅС‹С… РѕРїС†РёРё, Р·Р°РєР»СЋС‡РµРЅРЅС‹Р№ РІ РєР»Р°СЃСЃ value<>. РўСЂРµС‚РёР№ РїР°СЂР°РјРµС‚СЂ СЃРѕРґРµСЂР¶РёС‚ РѕРїРёСЃР°РЅРёРµ СЌС‚РѕР№ РѕРїС†РёРё
     desc.add_options()
         ("help", "produce help message")
         ("include-file,I", opt::value<std::vector<std::string>>(&includePathesDirectories), "path to search for source files")
     ;
 
-    // Переменная для хранения аргументов нашей командной строки
+    // РџРµСЂРµРјРµРЅРЅР°СЏ РґР»СЏ С…СЂР°РЅРµРЅРёСЏ Р°СЂРіСѓРјРµРЅС‚РѕРІ РЅР°С€РµР№ РєРѕРјР°РЅРґРЅРѕР№ СЃС‚СЂРѕРєРё
     opt::variables_map vm;
 
-    // Парсинг и сохранение аргументов
+    // РџР°СЂСЃРёРЅРі Рё СЃРѕС…СЂР°РЅРµРЅРёРµ Р°СЂРіСѓРјРµРЅС‚РѕРІ
     opt::store(opt::parse_command_line(argc, argv, desc), vm);
 
     try
     {
-        // Эта функция должна вызываться после парсинга и сохранения
+        // Р­С‚Р° С„СѓРЅРєС†РёСЏ РґРѕР»Р¶РЅР° РІС‹Р·С‹РІР°С‚СЊСЃСЏ РїРѕСЃР»Рµ РїР°СЂСЃРёРЅРіР° Рё СЃРѕС…СЂР°РЅРµРЅРёСЏ
         opt::notify(vm);
     }
     catch (const opt::required_option& e)
