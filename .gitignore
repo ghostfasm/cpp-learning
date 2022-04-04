@@ -32,9 +32,13 @@
 *.app
 
 # etc
-.json
+/.vscode/*.json
+/.vscode
+# Tasks/dependencyParser/app
 /build
-Tasks/dependencyParser/CMakeFiles
+CMakeFiles
+
 Makefile
 *.cmake
 CMakeCache.txt
+

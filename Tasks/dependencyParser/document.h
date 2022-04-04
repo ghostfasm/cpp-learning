@@ -68,19 +68,26 @@ class DocumentsGroup
         DocumentsGroup result;
         namespace fs = std::filesystem;
 
-        for (fs::recursive_directory_iterator e(dir), end; e != end; ++e) 
+        try
         {
-            if (!is_directory(e->path()))
+            for (fs::recursive_directory_iterator e(dir), end; e != end; ++e) 
             {
-                if (e->path().extension() == extension)
+                if (!is_directory(e->path()))
                 {
-                    Document d(e->path().filename(), dir, extension);
-                    result.documents.push_back(d);
+                    if (e->path().extension() == extension)
+                    {
+                        Document d(e->path().filename(), dir, extension);
+                        result.documents.push_back(d);
+                    }
                 }
             }
-        }
 
+        } catch (const std::exception& e) {
+            std::cout << e.what() << "\n";
+        }
+        
         return result;
+
     }
     void print();
 };

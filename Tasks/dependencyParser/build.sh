@@ -1,6 +1,11 @@
-# rm CMakeCache.txt
-# rm -r CMakeFiles
 rm app
-cmake ..
+
+cmake CMakeLists.txt
 make
+
+rm CMakeCache.txt
+rm -r CMakeFiles
 ./app
+# cmake ../../.
+
+# /make
