@@ -32,8 +32,9 @@
 *.app
 
 # etc
-/.vscode/*.json
 /.vscode
+/*.json
+
 # Tasks/dependencyParser/app
 /build
 CMakeFiles
@@ -42,3 +43,4 @@ Makefile
 *.cmake
 CMakeCache.txt
 
+.vscode/settings.json
