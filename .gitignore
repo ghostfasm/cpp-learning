@@ -32,7 +32,6 @@
 *.app
 
 # etc
-/.vscode
 /*.json
 
 # Tasks/dependencyParser/app
@@ -43,4 +42,6 @@ Makefile
 *.cmake
 CMakeCache.txt
 
-.vscode/settings.json
+/.vscode
+
+Tasks/dependencyParser/app
