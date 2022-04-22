@@ -21,7 +21,7 @@ Write a String class - a simplified analog of the library std::string. The follo
 
 - The methods front() and back(), which return a reference to the initial and last characters of the string, respectively.
 
-- - The += operator, which allows you to add a character or another string to a string. Adding a symbol should work for amortized O(1).
+- The += operator, which allows you to add a character or another string to a string. Adding a symbol should work for amortized O(1).
 
 - The + operator, which allows you to add strings with symbols, symbols with strings and strings with strings.
 
